@@ -2,12 +2,12 @@
   position: relative;
   overflow: hidden;
   max-height: 100000000px;
-  height: 100%;
+  height: 100dvh;
 
   @media (max-width: 1440px) {
     max-width: 1440px;
     width: 100%;
-    height: 890px;
+    height: 100dvh;
   }
 
   .bg {
@@ -20,17 +20,23 @@
     @media (max-width: 1440px) {
       max-width: 1440px;
       width: 100%;
-      height: fit-content;
+      height: 100dvh;
     }
   }
   .content {
-    margin-left: 108px;
-    margin-top: 310px;
+    margin-left: 150px;
+    margin-top: 360px;
     padding: 30px;
     max-width: 650px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    @media (max-width: 1440px) {
+      margin-left: 108px;
+    }
+    @media (max-width: 1240px) {
+      margin-left: 90px;
+    }
     .title {
       font-size: 64px;
       font-style: normal;
@@ -50,9 +56,6 @@
       font-style: normal;
       font-weight: 600;
       line-height: normal;
-    }
-    .button {
-      width: fit-content;
     }
   }
 }

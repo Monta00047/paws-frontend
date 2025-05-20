@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
 import type { FC } from 'react';
+import type { IHero } from '../../types/home/hero';
+import type { IServices } from '../../types/home/services';
 import Hero from '../../components/Home/Hero/Hero';
 import styles from './HomePage.module.scss';
 import Spinner from '../../components/Spinner/Spinner';
-import type { IHero } from '../../types/home/hero';
+import Services from '../../components/Home/Services/Services';
 
 type HomePageApiResponse = {
   data: {
     hero: { data: IHero };
+    services: { data: IServices };
   };
 };
 
@@ -16,7 +19,7 @@ const HomePage: FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const homePageData = data?.data;
-  const { hero } = homePageData || {};
+  const { hero, services } = homePageData || {};
 
   const fetchHomePageData = async () => {
     try {
@@ -43,7 +46,10 @@ const HomePage: FC = () => {
   return loading ? (
     <Spinner />
   ) : (
-    <div className={styles.homepage}>{hero && <Hero data={hero} />}</div>
+    <div className={styles.homepage}>
+      {hero && <Hero data={hero} />}
+      {services && <Services data={services} />}
+    </div>
   );
 };
 
