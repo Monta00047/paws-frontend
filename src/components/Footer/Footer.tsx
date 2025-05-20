@@ -18,11 +18,21 @@ const Footer: FC = () => {
       <div className={styles.right}>
         <div className={styles.column}>
           <div className={styles.title}>Navigation</div>
-          <div className={styles.element}>Home</div>
-          <div className={styles.element}>Services </div>
-          <div className={styles.element}>Appointment</div>
-          <div className={styles.element}>About us </div>
-          <div className={styles.element}>Blog</div>
+          <a href="#" className={styles.element}>
+            Home
+          </a>
+          <a href="#" className={styles.element}>
+            Services{' '}
+          </a>
+          <a href="#" className={styles.element}>
+            Appointment
+          </a>
+          <a href="#" className={styles.element}>
+            About us{' '}
+          </a>
+          <a href="#" className={styles.element}>
+            Blog
+          </a>
         </div>
       </div>
     </footer>

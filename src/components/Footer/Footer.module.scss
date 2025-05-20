@@ -42,8 +42,12 @@
         font-weight: 500;
         line-height: normal;
         transition: all ease-out 0.3s;
+        color: inherit;
+        text-decoration: none;
+        width: fit-content;
         &:hover {
           color: #5f36bf;
+          border-bottom: #5f36bf 1px solid;
         }
       }
     }

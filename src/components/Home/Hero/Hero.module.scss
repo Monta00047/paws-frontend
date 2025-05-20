@@ -3,6 +3,7 @@
   overflow: hidden;
   max-height: 100000000px;
   height: 100%;
+
   @media (max-width: 1440px) {
     max-width: 1440px;
     width: 100%;
@@ -20,6 +21,38 @@
       max-width: 1440px;
       width: 100%;
       height: fit-content;
+    }
+  }
+  .content {
+    margin-left: 108px;
+    margin-top: 310px;
+    padding: 30px;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .title {
+      font-size: 64px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-bottom: 4px;
+    }
+    .subtitle {
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-bottom: 21px;
+    }
+    .description {
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+    .button {
+      width: fit-content;
     }
   }
 }
