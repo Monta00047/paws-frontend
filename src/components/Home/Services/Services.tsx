@@ -24,11 +24,13 @@ const Services: FC<IServices> = ({ data }) => {
           return (
             <div className={styles.item} key={id}>
               <img className={styles.itemBG} src={itemBG} alt="" />
-              <img
-                className={styles.itemIcon}
-                src={import.meta.env.VITE_BASE_URL + url}
-                alt=""
-              />
+              <div className={styles.itemIconWrapper}>
+                <img
+                  className={styles.itemIcon}
+                  src={import.meta.env.VITE_BASE_URL + url}
+                  alt="service icon"
+                />
+              </div>
               <div className={styles.itemTitle}>{title}</div>
               <div className={styles.itemSubtitle}>{subtitle}</div>
               <Button href={href} variant={variant}>

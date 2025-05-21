@@ -1,7 +1,9 @@
 import type { FC } from 'react';
+import type { IHero } from '../../../types/home/hero';
 import styles from './Hero.module.scss';
 import BG from '../../../assets/images/home/BG.png';
-import type { IHero } from '../../../types/home/hero';
+import dogsR from '../../../assets/images/home/heroDogsR.png';
+import BGR from '../../../assets/images/home/heroBGR.png';
 import Button from '../../Button/Button';
 const Hero: FC<IHero> = ({ data }) => {
   const { button, title, subtitle, description } = data;
@@ -9,6 +11,8 @@ const Hero: FC<IHero> = ({ data }) => {
   return (
     <div className={styles.hero}>
       <img src={BG} className={styles.bg} alt="" />
+      <img src={BGR} className={styles.bgr} alt="" />
+      <img src={dogsR} className={styles.dogsR} alt="" />
       <div className={styles.content}>
         <div className={styles.title}>{title}</div>
         <div className={styles.subtitle}>{subtitle}</div>

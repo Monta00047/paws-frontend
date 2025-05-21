@@ -1,11 +1,12 @@
 import type { FC } from 'react';
 import styles from './Header.module.scss';
 import logo from '../../assets/images/header/logo.svg';
+import menu from '../../assets/icons/menu.svg';
 import Button from '../Button/Button';
 const Header: FC = () => {
   return (
     <div className={styles.header}>
-      <img src={logo} alt="" />
+      <img className={styles.logo} src={logo} alt="" />
       <div className={styles.navlinks}>
         <a className={styles.link} href="">
           Home
@@ -23,9 +24,10 @@ const Header: FC = () => {
           Blog
         </a>
       </div>
-      <Button href="#" variant="tertiary">
+      <Button className={styles.button} href="#" variant="tertiary">
         Contact Us
       </Button>
+      <img className={styles.menu} src={menu} alt="" />
     </div>
   );
 };

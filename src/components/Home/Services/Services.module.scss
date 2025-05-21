@@ -5,7 +5,10 @@
   align-items: center;
   gap: 48px;
   margin-top: 90px;
-  padding: 0 32px;
+  padding: 0 32px 200px 32px;
+  @media (max-width: 1150px) {
+    display: none;
+  }
   .bg {
     position: absolute;
     z-index: -1;
@@ -29,12 +32,13 @@
     height: 400px;
     transform: translateY(-120px);
     .item {
+      color: #525252;
       position: relative;
       display: flex;
       flex-direction: column;
       gap: 28px;
       align-items: center;
-      max-width: 288px;
+      max-width: 320px;
       width: 100%;
       margin-right: 64px;
       margin-top: 180px;
@@ -45,6 +49,25 @@
         top: 50%;
         right: 50%;
         transform: translate(50%, -50%);
+      }
+      .itemIconWrapper {
+        background-color: white;
+        border-radius: 100px;
+        padding: 12px;
+        .itemIcon {
+        }
+      }
+      .itemTitle {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+      .itemSubtitle {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
       }
     }
   }
