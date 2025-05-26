@@ -8,12 +8,15 @@ import Spinner from '../../components/Spinner/Spinner';
 import Services from '../../components/Home/Services/Services';
 import Team from '../../components/Home/Team/Team';
 import type { ITeam } from '../../types/home/team';
+import type { IBestCare } from '../../types/home/bestCare';
+import BestCare from '../../components/Home/BestCare/BestCare';
 
 type HomePageApiResponse = {
   data: {
-    hero: IHero;
-    services: IServices;
-    team: ITeam;
+    hero: IHero['data'];
+    services: IServices['data'];
+    team: ITeam['data'];
+    bestCare: IBestCare['data'];
   };
 };
 
@@ -22,8 +25,7 @@ const HomePage: FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const homePageData = data?.data;
-  const { hero, services, team } = homePageData || {};
-  console.log(team);
+  const { hero, services, team, bestCare } = homePageData || {};
 
   const fetchHomePageData = async () => {
     try {
@@ -36,8 +38,8 @@ const HomePage: FC = () => {
 
       const result = await response.json();
       setData(result);
-    } catch (err: any) {
-      setError(err.message || 'Something went wrong');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong');
     } finally {
       setLoading(false);
     }
@@ -68,6 +70,7 @@ const HomePage: FC = () => {
       {hero && <Hero data={hero} />}
       {services && <Services data={services} />}
       {team && <Team data={team} />}
+      {bestCare && <BestCare data={bestCare} />}
     </div>
   );
 };
