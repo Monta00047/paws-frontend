@@ -4,7 +4,7 @@
   height: 80px;
   margin: 65px 48px 0;
   background-color: white;
-  width: calc(100% - 48px * 2); //48px is the margin on the side
+  width: calc(100% - 48px * 2);
   padding: 14px 28px;
   border-radius: 20px;
   box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.05);
@@ -14,7 +14,7 @@
 
   @media (max-width: 550px) {
     margin: 40px 10px 0;
-    width: calc(100% - 10px * 2); //10px is the margin on the side
+    width: calc(100% - 10px * 2);
   }
 
   @media (max-width: 360px) {
@@ -24,6 +24,11 @@
   .logo {
     cursor: pointer;
     z-index: 1001;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   .menuButton {
@@ -33,6 +38,18 @@
     cursor: pointer;
     padding: 0.5rem;
     z-index: 1001;
+    position: relative;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      background-color: rgba(95, 54, 191, 0.1);
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
 
     @media (max-width: 1150px) {
       display: block;
@@ -42,6 +59,13 @@
   .menu {
     cursor: pointer;
     display: block;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-origin: center;
+  }
+
+  // Menu icon animation when menu is open
+  .menuButton:hover .menu {
+    transform: rotate(90deg);
   }
 
   .navlinks {
@@ -50,21 +74,33 @@
     gap: 32px;
 
     @media (max-width: 1150px) {
-      display: none;
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: white;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(255, 255, 255, 0.95) 100%
+      );
+      backdrop-filter: blur(20px);
       flex-direction: column;
       justify-content: center;
       align-items: center;
       gap: 2rem;
       z-index: 1000;
 
+      // Initial state - hidden
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-100%);
+      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
       &.open {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
       }
     }
 
@@ -78,16 +114,46 @@
       line-height: normal;
       border-bottom: transparent solid 1px;
       transition: all ease-in-out 0.3s;
+      position: relative;
 
       &:hover {
         color: var(--Purple, #5f36bf);
         border-bottom-color: #5f36bf;
+        transform: translateY(-2px);
       }
 
       @media (max-width: 1150px) {
         display: block;
         font-size: 18px;
         padding: 0.5rem 0;
+        opacity: 0;
+        transform: translateY(30px);
+        animation-fill-mode: forwards;
+
+        // Staggered animation for each link
+        &:nth-child(1) {
+          animation-delay: 0.1s;
+        }
+        &:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+        &:nth-child(3) {
+          animation-delay: 0.3s;
+        }
+        &:nth-child(4) {
+          animation-delay: 0.4s;
+        }
+        &:nth-child(5) {
+          animation-delay: 0.5s;
+        }
+      }
+    }
+
+    // Animation for menu links when menu opens
+    &.open .link {
+      @media (max-width: 1150px) {
+        animation: slideInUp 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+          forwards;
       }
     }
   }
@@ -97,7 +163,6 @@
     align-items: center;
 
     @media (max-width: 1150px) {
-      display: none;
       position: fixed;
       bottom: 2rem;
       left: 0;
@@ -107,15 +172,90 @@
       padding: 0 2rem;
       z-index: 1000;
 
+      // Initial state - hidden
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(50px);
+      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s;
+
       &.open {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
       }
     }
   }
 
   .button {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(95, 54, 191, 0.3);
+    }
+
     @media (max-width: 1150px) {
       width: fit-content;
     }
+  }
+
+  // Add a subtle overlay animation
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+
+    @media (max-width: 1150px) {
+      .navlinks.open ~ &,
+      .actions.open ~ & {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+
+// Keyframe animations
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Add a pulsing effect for the menu button when menu is closed
+@media (max-width: 1150px) {
+  .header:not(.menuOpen) .menuButton {
+    animation: subtlePulse 3s ease-in-out infinite;
+  }
+}
+
+@keyframes subtlePulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(95, 54, 191, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(95, 54, 191, 0.1);
   }
 }
