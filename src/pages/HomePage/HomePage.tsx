@@ -6,11 +6,14 @@ import Hero from '../../components/Home/Hero/Hero';
 import styles from './HomePage.module.scss';
 import Spinner from '../../components/Spinner/Spinner';
 import Services from '../../components/Home/Services/Services';
+import Team from '../../components/Home/Team/Team';
+import type { ITeam } from '../../types/home/team';
 
 type HomePageApiResponse = {
   data: {
-    hero: { data: IHero };
-    services: { data: IServices };
+    hero: IHero;
+    services: IServices;
+    team: ITeam;
   };
 };
 
@@ -19,7 +22,8 @@ const HomePage: FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const homePageData = data?.data;
-  const { hero, services } = homePageData || {};
+  const { hero, services, team } = homePageData || {};
+  console.log(team);
 
   const fetchHomePageData = async () => {
     try {
@@ -43,12 +47,27 @@ const HomePage: FC = () => {
     fetchHomePageData();
   }, []);
 
-  return loading ? (
-    <Spinner />
-  ) : (
+  if (loading) {
+    return <Spinner />;
+  }
+
+  if (error) {
+    return (
+      <div className={styles.homepage}>
+        <div className={styles.error}>
+          <h2>Something went wrong</h2>
+          <p>{error}</p>
+          <button onClick={fetchHomePageData}>Try Again</button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
     <div className={styles.homepage}>
       {hero && <Hero data={hero} />}
       {services && <Services data={services} />}
+      {team && <Team data={team} />}
     </div>
   );
 };
