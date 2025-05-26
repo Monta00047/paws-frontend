@@ -56,16 +56,56 @@
     }
   }
 
+  .hamburger {
+    width: 20px;
+    height: 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--Navy, #002d43);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-origin: center;
+    border-radius: 1px;
+  }
+
+  // Transform to X when menu is open
+  &.menuOpen .hamburger .line {
+    &:nth-child(1) {
+      transform: rotate(45deg);
+      position: absolute;
+      top: 50%;
+      left: 0;
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    &:nth-child(3) {
+      transform: rotate(-45deg);
+      position: absolute;
+      top: 50%;
+      left: 0;
+    }
+  }
+
+  // Hover effects
+  .menuButton:hover .line {
+    background-color: var(--Purple, #5f36bf);
+  }
+
   .menu {
     cursor: pointer;
     display: block;
     transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     transform-origin: center;
-  }
-
-  // Menu icon animation when menu is open
-  .menuButton:hover .menu {
-    transform: rotate(90deg);
   }
 
   .navlinks {

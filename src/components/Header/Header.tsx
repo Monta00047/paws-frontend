@@ -2,7 +2,6 @@ import type { FC } from 'react';
 import { useState, useEffect } from 'react';
 import styles from './Header.module.scss';
 import logo from '../../assets/images/header/logo.svg';
-import menu from '../../assets/icons/menu.svg';
 import Button from '../Button/Button';
 
 const Header: FC = () => {
@@ -81,14 +80,11 @@ const Header: FC = () => {
         aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
         aria-expanded={isMenuOpen}
       >
-        <img
-          className={styles.menu}
-          src={menu}
-          alt="Menu"
-          style={{
-            transform: isMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-          }}
-        />
+        <div className={styles.hamburger}>
+          <span className={styles.line}></span>
+          <span className={styles.line}></span>
+          <span className={styles.line}></span>
+        </div>
       </button>
     </div>
   );
