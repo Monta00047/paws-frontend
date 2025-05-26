@@ -4,34 +4,70 @@
   height: 80px;
   margin: 65px 48px 0;
   background-color: white;
-  width: calc(100% - 48px * 2);
+  width: calc(100% - 48px * 2); //48px is the margin on the side
   padding: 14px 28px;
   border-radius: 20px;
   box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   @media (max-width: 550px) {
     margin: 40px 10px 0;
-    width: calc(100% - 10px * 2);
+    width: calc(100% - 10px * 2); //10px is the margin on the side
   }
+
   @media (max-width: 360px) {
     padding: 14px;
   }
+
   .logo {
     cursor: pointer;
+    z-index: 1001;
   }
-  .menu {
-    cursor: pointer;
+
+  .menuButton {
     display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+
     @media (max-width: 1150px) {
       display: block;
     }
   }
+
+  .menu {
+    cursor: pointer;
+    display: block;
+  }
+
   .navlinks {
     display: flex;
     flex-direction: row;
     gap: 32px;
+
+    @media (max-width: 1150px) {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: white;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      z-index: 1000;
+
+      &.open {
+        display: flex;
+      }
+    }
+
     .link {
       cursor: pointer;
       text-decoration: none;
@@ -42,19 +78,44 @@
       line-height: normal;
       border-bottom: transparent solid 1px;
       transition: all ease-in-out 0.3s;
-      @media (max-width: 1150px) {
-        display: none;
-      }
 
       &:hover {
         color: var(--Purple, #5f36bf);
         border-bottom-color: #5f36bf;
       }
+
+      @media (max-width: 1150px) {
+        display: block;
+        font-size: 18px;
+        padding: 0.5rem 0;
+      }
     }
   }
-  .button {
+
+  .actions {
+    display: flex;
+    align-items: center;
+
     @media (max-width: 1150px) {
       display: none;
+      position: fixed;
+      bottom: 2rem;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 2rem;
+      z-index: 1000;
+
+      &.open {
+        display: flex;
+      }
+    }
+  }
+
+  .button {
+    @media (max-width: 1150px) {
+      width: fit-content;
     }
   }
 }
