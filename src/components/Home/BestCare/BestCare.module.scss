@@ -1,34 +1,59 @@
 .bestCare {
-  padding: 32px;
   position: relative;
+  max-width: 2000px;
+  width: 100%;
+  height: 766px;
+  padding: 32px;
+  padding-top: 16px;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
 
+  .BG {
+    position: absolute;
+  }
+  .BR {
+    bottom: 32px;
+    right: 96px;
+  }
+  .L {
+    left: 32px;
+  }
+  .TL {
+    top: 0;
+    left: 32px;
+  }
+  .TR {
+    top: 0;
+    right: 32px;
+  }
+
   .pattern {
     position: absolute;
     z-index: -1;
-    top: -50%;
+    top: 50%;
+    transform: translateY(-60%);
   }
 
   .content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-self: center;
     gap: 26px;
-    height: 300px;
-  }
-  .title {
-    font-size: 38px;
-    font-weight: 700;
-  }
-  .subtitle {
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 16px;
-    max-width: 444px;
-  }
-  .button {
+
+    .title {
+      font-size: 38px;
+      font-weight: 700;
+    }
+    .subtitle {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 16px;
+      max-width: 444px;
+    }
+    .button {
+    }
   }
 }
