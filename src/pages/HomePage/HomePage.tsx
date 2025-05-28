@@ -2,14 +2,16 @@ import { useEffect, useState } from 'react';
 import type { FC } from 'react';
 import type { IHero } from '../../types/home/hero';
 import type { IServices } from '../../types/home/services';
+import type { ITeam } from '../../types/home/team';
+import type { IBestCare } from '../../types/home/bestCare';
+import type { IFAQ } from '../../types/home/faq';
 import Hero from '../../components/Home/Hero/Hero';
 import styles from './HomePage.module.scss';
 import Spinner from '../../components/Spinner/Spinner';
 import Services from '../../components/Home/Services/Services';
 import Team from '../../components/Home/Team/Team';
-import type { ITeam } from '../../types/home/team';
-import type { IBestCare } from '../../types/home/bestCare';
 import BestCare from '../../components/Home/BestCare/BestCare';
+import FAQ from '../../components/Home/FAQ/FAQ';
 
 type HomePageApiResponse = {
   data: {
@@ -17,6 +19,7 @@ type HomePageApiResponse = {
     services: IServices['data'];
     team: ITeam['data'];
     bestCare: IBestCare['data'];
+    FAQ: IFAQ['data'];
   };
 };
 
@@ -25,7 +28,7 @@ const HomePage: FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const homePageData = data?.data;
-  const { hero, services, team, bestCare } = homePageData || {};
+  const { hero, services, team, bestCare, FAQ: faq } = homePageData || {};
 
   const fetchHomePageData = async () => {
     try {
@@ -71,6 +74,7 @@ const HomePage: FC = () => {
       {services && <Services data={services} />}
       {team && <Team data={team} />}
       {bestCare && <BestCare data={bestCare} />}
+      {faq && <FAQ data={faq} />}
     </div>
   );
 };
