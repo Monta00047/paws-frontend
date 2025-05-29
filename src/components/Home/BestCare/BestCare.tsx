@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import type { IBestCare } from '../../../types/home/bestCare';
 import Button from '../../Button/Button';
 import styles from './BestCare.module.scss';
-// import BG from '../../../assets/images/home/bestCareBG.png';
+import BGR from '../../../assets/images/home/bestCareBGR.png';
 import pattern from '../../../assets/images/home/bestCarePattern.png';
 import BR from '../../../assets/icons/home/bestCare/bottomLeft.svg';
 import L from '../../../assets/icons/home/bestCare/left.svg';
@@ -13,6 +13,7 @@ const BestCare: FC<IBestCare> = ({ data }) => {
   const { href, label, variant } = button;
   return (
     <div className={styles.bestCare}>
+      <img src={BGR} className={styles.BGR} alt="background" />
       <img className={`${styles.BG} ${styles.BR}`} src={BR} alt="" />
       <img className={`${styles.BG} ${styles.L}`} src={L} alt="" />
       <img className={`${styles.BG} ${styles.TL}`} src={TL} alt="" />

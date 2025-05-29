@@ -84,7 +84,7 @@ const HomePage: FC = () => {
       {services && <Services data={services} />}
       {team && <Team data={team} />}
       {bestCare && <BestCare data={bestCare} />}
-      {videoSection && <VideoSection data={videoSection} />}
+      {/* {videoSection && <VideoSection data={videoSection} />} */}
       {faq && <FAQ data={faq} />}
     </div>
   );

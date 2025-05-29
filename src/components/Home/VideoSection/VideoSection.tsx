@@ -82,7 +82,9 @@ const VideoSection: FC<IVideoSection> = ({ data }) => {
         <div className={styles.videoWrapper}>
           <video
             ref={videoRef}
-            className={styles.video}
+            className={`${styles.video} ${
+              isPlaying ? styles.playing : styles.paused
+            }`}
             controls
             preload="metadata"
           >
@@ -110,6 +112,11 @@ const VideoSection: FC<IVideoSection> = ({ data }) => {
           >
             <PauseIcon />
           </div>
+
+          {/* Optional: Show play state indicator */}
+          {isPlaying && (
+            <div className={styles.playingIndicator}>Playing...</div>
+          )}
         </div>
       );
     } else if (isEmbeddableUrl) {
