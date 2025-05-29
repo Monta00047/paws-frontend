@@ -12,6 +12,8 @@ import Services from '../../components/Home/Services/Services';
 import Team from '../../components/Home/Team/Team';
 import BestCare from '../../components/Home/BestCare/BestCare';
 import FAQ from '../../components/Home/FAQ/FAQ';
+import type { IVideoSection } from '../../types/home/videoSection';
+import VideoSection from '../../components/Home/VideoSection/VideoSection';
 
 type HomePageApiResponse = {
   data: {
@@ -20,6 +22,7 @@ type HomePageApiResponse = {
     team: ITeam['data'];
     bestCare: IBestCare['data'];
     FAQ: IFAQ['data'];
+    videoSection: IVideoSection['data'];
   };
 };
 
@@ -28,7 +31,14 @@ const HomePage: FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const homePageData = data?.data;
-  const { hero, services, team, bestCare, FAQ: faq } = homePageData || {};
+  const {
+    hero,
+    services,
+    team,
+    bestCare,
+    FAQ: faq,
+    videoSection,
+  } = homePageData || {};
 
   const fetchHomePageData = async () => {
     try {
@@ -74,6 +84,7 @@ const HomePage: FC = () => {
       {services && <Services data={services} />}
       {team && <Team data={team} />}
       {bestCare && <BestCare data={bestCare} />}
+      {videoSection && <VideoSection data={videoSection} />}
       {faq && <FAQ data={faq} />}
     </div>
   );
