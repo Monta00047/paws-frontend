@@ -184,10 +184,13 @@
     flex-direction: column;
     padding: 40px 24px;
     gap: 40px;
+    text-align: center;
 
     .left {
       width: 100%;
-
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       .title {
         font-size: 28px;
       }
@@ -228,17 +231,6 @@
     .left {
       .title {
         font-size: 24px;
-      }
-
-      .group {
-        .arrow {
-          left: unset;
-          right: 50px;
-          top: -30px;
-          @media (max-width: 390px) {
-            right: 0px;
-          }
-        }
       }
     }
 
