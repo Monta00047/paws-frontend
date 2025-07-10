@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import type { ITeam } from '../../../types/home/team';
 import styles from './Team.module.scss';
+
 const Team: FC<ITeam> = ({ data }) => {
   const { title, item } = data;
 
