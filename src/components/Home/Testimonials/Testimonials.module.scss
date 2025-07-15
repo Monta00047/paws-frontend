@@ -1,0 +1,15 @@
+.testimonials {
+  margin-bottom: 72px;
+  padding: 87px 48px 114px;
+  background-color: #f4f2f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  .title {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: normal;
+  }
+}
