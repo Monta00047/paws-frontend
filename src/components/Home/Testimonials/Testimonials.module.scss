@@ -1,0 +1,317 @@
+.testimonials {
+  position: relative;
+  margin-bottom: 72px;
+  padding: 87px 48px 114px;
+  background-color: #f4f2f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  @media (max-width: 700px) {
+    gap: 0;
+    padding: 24px 12px 48px;
+  }
+  .arrow {
+    position: absolute;
+    left: 1%;
+    top: 22%;
+    @media (max-width: 950px) {
+      display: none;
+    }
+  }
+  .title {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: normal;
+    @media (max-width: 700px) {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: normal;
+      transform: translateY(24px);
+    }
+  }
+
+  // Force pagination to bottom of testimonials
+  :global(.swiper-pagination) {
+    position: absolute !important;
+    left: 0;
+    right: 0;
+    bottom: 32px !important;
+    margin: 0 auto !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+    z-index: 20;
+  }
+}
+.swiper {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 32px;
+  position: relative;
+
+  .swiper-pagination {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -24px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+  }
+}
+.slide {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  background: none;
+  overflow: visible;
+  @media (max-width: 900px) {
+    flex-direction: column;
+    min-height: 420px;
+    transform: translateY(-12px);
+  }
+  @media (max-width: 730px) {
+    transform: translateY(-32px);
+  }
+}
+.cardBG {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  overflow: visible;
+  max-width: 760px;
+  width: 100%;
+  transform: translate(60px, 0);
+  height: 330px;
+  @media (max-width: 900px) {
+    width: 80%;
+    transform: translate(100px, -30px);
+    height: 400px;
+  }
+  @media (max-width: 700px) {
+    display: none;
+  }
+}
+.cardContent {
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  padding: 48px 32px 32px 48px;
+  max-width: 600px;
+  min-width: 320px;
+  overflow: visible;
+  width: 100%;
+  transform: translate(-64px, 24px);
+  @media (max-width: 950px) {
+    transform: translate(0, 10px);
+  }
+  @media (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  @media (max-width: 730px) {
+    transform: translate(20px, 20px);
+  }
+  @media (max-width: 700px) {
+    margin-top: 32px;
+    padding: 32px 16px 16px 16px;
+    border-radius: 32px;
+    transform: unset;
+    min-width: unset;
+    max-width: 500px;
+    width: 100%;
+    margin-bottom: 24px;
+    background-color: #fff5c3;
+  }
+}
+.text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px; /* 130% */
+  margin-bottom: 12px;
+  width: 100%;
+  @media (max-width: 900px) {
+    max-width: 400px;
+    text-align: center;
+  }
+  @media (max-width: 700px) {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+}
+.fullname {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: normal;
+  width: 100%;
+  @media (max-width: 900px) {
+    max-width: 400px;
+    text-align: center;
+  }
+  @media (max-width: 700px) {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px; /* 185.714% */
+  }
+}
+.imageWrapper {
+  cursor: pointer;
+  position: absolute;
+  right: 132px;
+  top: 20px;
+  z-index: 10;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: visible; // Allow image shadow to show
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  @media (max-width: 990px) {
+    right: 50px;
+  }
+  @media (max-width: 920px) {
+    right: 20px;
+  }
+  @media (max-width: 900px) {
+    position: static;
+    margin: 0 auto 16px auto;
+    width: 96px;
+    height: 96px;
+    border-width: 4px;
+  }
+}
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #a18be6;
+  background: #e1d8f7;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  top: 50%;
+  transform: translateY(-50%);
+  &::after {
+    font-size: 28px;
+    font-weight: bold;
+  }
+}
+.swiper-button-prev {
+  left: -80px;
+  @media (max-width: 900px) {
+    left: 0;
+  }
+}
+.swiper-button-next {
+  right: -80px;
+  @media (max-width: 900px) {
+    right: 0;
+  }
+}
+.swiper-pagination {
+  .swiper-pagination-bullet {
+    width: 16px;
+    height: 16px;
+    background: transparent !important;
+    border: 2px solid #a18be6;
+    opacity: 1;
+    margin: 0 8px !important;
+    transition: all 0.2s;
+    box-shadow: none;
+  }
+  .swiper-pagination-bullet-active {
+    width: 16px;
+    height: 16px;
+    background: #a18be6 !important;
+    border: none;
+    box-shadow: 0 4px 16px rgba(161, 139, 230, 0.15);
+  }
+}
+
+.swiperButtonPrev,
+.swiperButtonNext {
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+  transition: background 0.2s, box-shadow 0.2s;
+  padding: 0;
+  transition: all ease-out 0.3s;
+
+  &:hover {
+    transform: translateY(-8px);
+  }
+
+  img {
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+.swiperButtonPrev {
+  left: 180px !important;
+  @media (max-width: 1300px) {
+    left: 70px !important;
+  }
+  @media (max-width: 1060px) {
+    left: 20px !important;
+  }
+  @media (max-width: 950px) {
+    display: none;
+  }
+}
+
+.swiperButtonNext {
+  right: 180px !important;
+  @media (max-width: 1300px) {
+    right: 70px !important;
+  }
+  @media (max-width: 1060px) {
+    right: 20px !important;
+  }
+  @media (max-width: 950px) {
+    display: none;
+  }
+}
+
+.testimonials :global(.swiper-pagination-bullet) {
+  width: 14px;
+  height: 14px;
+  background: transparent !important;
+  border: 2px solid #a18be6;
+  opacity: 1;
+  margin: 0 8px !important;
+  transition: all 0.2s;
+  box-shadow: none;
+}
+.testimonials :global(.swiper-pagination-bullet-active) {
+  width: 16px;
+  height: 16px;
+  background: #a18be6 !important;
+  border: none;
+  box-shadow: 0 4px 16px rgba(161, 139, 230, 0.15);
+}

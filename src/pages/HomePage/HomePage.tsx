@@ -14,12 +14,15 @@ import BestCare from '../../components/Home/BestCare/BestCare';
 import FAQ from '../../components/Home/FAQ/FAQ';
 import type { IVideoSection } from '../../types/home/videoSection';
 import VideoSection from '../../components/Home/VideoSection/VideoSection';
+import Testimonials from '../../components/Home/Testimonials/Testimonials';
+import type { ITestimonials } from '../../types/home/testimonials';
 
 type HomePageApiResponse = {
   data: {
     hero: IHero['data'];
     services: IServices['data'];
     team: ITeam['data'];
+    testimonials: ITestimonials['data'];
     bestCare: IBestCare['data'];
     FAQ: IFAQ['data'];
     videoSection: IVideoSection['data'];
@@ -35,6 +38,7 @@ const HomePage: FC = () => {
     hero,
     services,
     team,
+    testimonials,
     bestCare,
     FAQ: faq,
     videoSection,
@@ -83,6 +87,7 @@ const HomePage: FC = () => {
       {hero && <Hero data={hero} />}
       {services && <Services data={services} />}
       {team && <Team data={team} />}
+      {testimonials && <Testimonials data={testimonials} />}
       {bestCare && <BestCare data={bestCare} />}
       {videoSection && <VideoSection data={videoSection} />}
       {faq && <FAQ data={faq} />}

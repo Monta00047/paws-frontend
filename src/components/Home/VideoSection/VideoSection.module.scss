@@ -184,10 +184,13 @@
     flex-direction: column;
     padding: 40px 24px;
     gap: 40px;
+    text-align: center;
 
     .left {
       width: 100%;
-
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       .title {
         font-size: 28px;
       }
@@ -199,7 +202,8 @@
 
       .group {
         .arrow {
-          left: 200px;
+          left: 250px;
+          top: -20px;
         }
       }
     }
@@ -227,13 +231,6 @@
     .left {
       .title {
         font-size: 24px;
-      }
-
-      .group {
-        .arrow {
-          left: 160px;
-          top: -30px;
-        }
       }
     }
 
