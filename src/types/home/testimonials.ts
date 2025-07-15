@@ -8,6 +8,17 @@ export interface ITestimonials {
   styles?: CSSProperties;
 }
 
-interface ITestimony {
-  title: string;
+export interface ITestimony {
+  id: number;
+  description: string;
+  fullname: string;
+  image: {
+    id: number;
+    url: string;
+    formats?: {
+      thumbnail?: {
+        url: string;
+      };
+    };
+  };
 }
