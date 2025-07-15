@@ -2,9 +2,6 @@ import type { FC } from 'react';
 import type { ITestimonials } from '../../../types/home/testimonials';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 import styles from './Testimonials.module.scss';
 import arrow from '../../../assets/icons/home/testimonials/Arrow 05.svg';
 import BG from '../../../assets/images/testimonials/testimonyBackground.png';
@@ -87,8 +84,8 @@ const Testimonials: FC<ITestimonials> = ({ data }) => {
                 <div className={styles.imageWrapper}>
                   <img
                     src={
-                      import.meta.env.VITE_BASE_URL +
-                        item.image?.formats?.thumbnail?.url || item.image.url
+                      // import.meta.env.VITE_BASE_URL +
+                      item.image?.formats?.thumbnail?.url || item.image.url
                     }
                     alt={item.fullname}
                     className={styles.image}

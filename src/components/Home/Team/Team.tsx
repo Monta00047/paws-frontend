@@ -16,7 +16,10 @@ const Team: FC<ITeam> = ({ data }) => {
             <div className={styles.item} key={id}>
               <img
                 className={styles.itemsImage}
-                src={import.meta.env.VITE_BASE_URL + url}
+                src={
+                  // import.meta.env.VITE_BASE_URL +
+                  url
+                }
               />
               <div className={styles.itemsTitle}>{title}</div>
               <div className={styles.itemsSubitle}>{subtitle}</div>

@@ -89,7 +89,10 @@ const VideoSection: FC<IVideoSection> = ({ data }) => {
             preload="metadata"
           >
             <source
-              src={import.meta.env.VITE_BASE_URL + url}
+              src={
+                // import.meta.env.VITE_BASE_URL +
+                url
+              }
               type="video/mp4"
             />
             Your browser does not support the video tag.
