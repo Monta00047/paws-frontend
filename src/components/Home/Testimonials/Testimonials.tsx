@@ -84,8 +84,8 @@ const Testimonials: FC<ITestimonials> = ({ data }) => {
                 <div className={styles.imageWrapper}>
                   <img
                     src={
-                      import.meta.env.VITE_BASE_URL +
-                        item.image?.formats?.thumbnail?.url || item.image.url
+                      // import.meta.env.VITE_BASE_URL +
+                      item.image?.formats?.thumbnail?.url || item.image.url
                     }
                     alt={item.fullname}
                     className={styles.image}

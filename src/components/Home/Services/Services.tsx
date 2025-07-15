@@ -27,7 +27,10 @@ const Services: FC<IServices> = ({ data }) => {
               <div className={styles.itemIconWrapper}>
                 <img
                   className={styles.itemIcon}
-                  src={import.meta.env.VITE_BASE_URL + url}
+                  src={
+                    // import.meta.env.VITE_BASE_URL +
+                    url
+                  }
                   alt="service icon"
                 />
               </div>
