@@ -32,7 +32,15 @@ const Testimonials: FC<ITestimonials> = ({ data }) => {
           ref={prevRef}
           className={styles.swiperButtonPrev}
           aria-label="Previous"
-          style={{ position: 'absolute', left: 0, top: '50%', zIndex: 10, background: 'none', border: 'none', padding: 0 }}
+          style={{
+            position: 'absolute',
+            left: 0,
+            top: '50%',
+            zIndex: 10,
+            background: 'none',
+            border: 'none',
+            padding: 0,
+          }}
         >
           <img src={prevButton} alt="Previous" />
         </button>
@@ -40,7 +48,15 @@ const Testimonials: FC<ITestimonials> = ({ data }) => {
           ref={nextRef}
           className={styles.swiperButtonNext}
           aria-label="Next"
-          style={{ position: 'absolute', right: 0, top: '50%', zIndex: 10, background: 'none', border: 'none', padding: 0 }}
+          style={{
+            position: 'absolute',
+            right: 0,
+            top: '50%',
+            zIndex: 10,
+            background: 'none',
+            border: 'none',
+            padding: 0,
+          }}
         >
           <img src={nextButton} alt="Next" />
         </button>
@@ -48,7 +64,11 @@ const Testimonials: FC<ITestimonials> = ({ data }) => {
           modules={[Navigation, Pagination, A11y]}
           spaceBetween={32}
           slidesPerView={1}
-          navigation={navReady ? { prevEl: prevRef.current, nextEl: nextRef.current } : false}
+          navigation={
+            navReady
+              ? { prevEl: prevRef.current, nextEl: nextRef.current }
+              : false
+          }
           pagination={{ clickable: true }}
           className={styles.swiper}
           breakpoints={{
