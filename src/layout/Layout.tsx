@@ -1,4 +1,4 @@
-import type { Dispatch, FC, ReactNode } from 'react';
+import type { FC, ReactNode } from 'react';
 import styles from './Layout.module.scss';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';

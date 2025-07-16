@@ -8,7 +8,7 @@ const App: FC = () => {
 
   return (
     <div className="app">
-      <Layout>
+      <Layout loading={loading}>
         <HomePage loading={loading} setLoading={setLoading} />
       </Layout>
     </div>
