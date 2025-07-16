@@ -13,7 +13,7 @@ const Layout: FC<LayoutProps> = ({ children, loading }) => {
     <div className={styles.layout}>
       <Header />
       <main className={styles.content}>{children}</main>
-      {loading && <Footer />}
+      {!loading && <Footer />}
     </div>
   );
 };
