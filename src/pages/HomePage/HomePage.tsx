@@ -16,6 +16,7 @@ import type { IVideoSection } from '../../types/home/videoSection';
 import VideoSection from '../../components/Home/VideoSection/VideoSection';
 import Testimonials from '../../components/Home/Testimonials/Testimonials';
 import type { ITestimonials } from '../../types/home/testimonials';
+import type { IHome } from '../../types/home/home';
 
 type HomePageApiResponse = {
   data: {
@@ -29,9 +30,8 @@ type HomePageApiResponse = {
   };
 };
 
-const HomePage: FC = () => {
+const HomePage: FC<IHome> = ({ loading, setLoading }) => {
   const [data, setData] = useState<HomePageApiResponse | null>(null);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const homePageData = data?.data;
   const {
